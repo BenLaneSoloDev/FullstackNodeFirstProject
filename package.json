@@ -1,0 +1,20 @@
+{
+  "name": "fullstacknode",
+  "version": "1.0.0",
+  "description": "Fullstack Node.js project",
+  "homepage": "https://github.com/BenLaneSoloDev/FullstackNodeFirstApp#readme",
+  "bugs": {
+    "url": "https://github.com/BenLaneSoloDev/FullstackNodeFirstApp/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenLaneSoloDev/FullstackNodeFirstApp.git"
+  },
+  "license": "MIT",
+  "author": "Benjamin Lane",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
