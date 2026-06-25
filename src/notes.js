@@ -6,6 +6,9 @@
 // Imported NPM packages can be gathered by name with Common Modules
 const dateFns = require("date-fns");
 
+
+
+
 // ------- Node.JS API's --------
 // Node.js has many API's to offer. For this project we are learning how they work by looking at the File System
 // one, but the process should be the same for others.
@@ -15,8 +18,6 @@ const dateFns = require("date-fns");
 // File System API
 // Accessed through:
 const fs = require("fs");
-
-
 
 
 
@@ -63,8 +64,45 @@ const fs = require("fs");
 // - HttpYak (used in this course)
 // - Postman
 
+// How to use HttpYak for testing RESTful API'S:
+
+// Setup
+// 1. Install HttpYak Extnesion in VSCode
+// 2. Create .http file in the root folder
+// 3. Enter requests into that file (will also be saved within a repo for others to easily use too)
+// 4. Press the "send" command above it
+// 5. View results in opened file
+
+// Settings (for the HttpYak extension)
+// 1. Ensure "Response View Column" is set to "current"
+// 2. Ensure "Response View Mode" is set to "open"
 
 
+
+// -------- Express -------
+// Minimal and flexible Node.js fraemwork that simplifies a lot of the server functionality
+// It provides a simplified API for: Routing, Middleware, Error Handling, Templating Engines 
+
+// Imports express and creates an Express app that recieves a GET request
+const express = require("express");
+const app = express(); 
+const port = 3001; // Ports range from 0 -> 65,535  http://localhost:3001 (URL for listen)
+
+app.get("/", (req, res) => {
+    console.log(req);
+    res.send("Hello World!");
+}); // Creates a GET route ("/" listens to default URL: http://localhost:3001)
+
+app.listen(port, () => {
+    console.log("App listening on port: " + port);
+}); // This stays running while it is connected (use "ctrl + c" to stop terminal running it)
+
+// How it works:
+// When a GET response is sent to for the Default URL (http://localhost:3001), is goes through this GET route,
+// as it is set up to respond to it. The console then prints the request (data needed for server to know what
+// to send back). It then responds with the return data, in this case that is "Hello World!". This app.listen 
+// runs the server so that when any request is made, it makes sure to answer it. The app.get would not work 
+// alone, but is ran when the server hears something sent to that port.
 
 
 
