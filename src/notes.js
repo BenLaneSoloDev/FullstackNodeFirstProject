@@ -127,7 +127,51 @@ module.exports = tasksRouter;
 const  tasksRouter = require("./tasks/tasks.router.js");
 app.use("/", tasksRouter);
 
+// Creatind and using MiddleWare
+const middleWare = function (req, res, next) {
+    req.info = {appname: "Tasks Manager", author: "Cloudaffle"};
+    next();
+}
 
+app.use(middleWare)
+
+// A path can be added to have this middleWare only work on specific URL's
+
+// Good Defaults
+app.use(express.json()); // Middleware that converts incoming request body into JSON format
+
+
+
+
+// --------- Activty Logging with Morgan Package --------
+// Once Morgan is installed the following imports are required in the main file
+const fs = require("fs");               // Node.js API
+const path = require("path");           // Node.js API
+const morgan = require("morgan");
+
+// With the following code setting up the logging MiddleWare
+let accessLogStream = fs.createWriteStream(path.join(__dirname, "..", "access.log"), { flags: "a" });
+app.use(morgan("combined", { stream: accessLogStream }));
+
+// This creates a writing stream to the joined path, and implements it as middleware
+
+
+
+// ------- Cross Origin Resource Sharing (CORS) --------
+// This ensures the safe access of API's. By default servers can only be accessed by the same origing (same
+// site). CORS allows other origins (other sites) to sen requests to the server, which can then delegate if 
+// access should be given. This is how public API's like google maps works.
+
+// There is a CORS npm package that can be installed
+// -> npm install CORS
+
+// This is a package that sets this functionality up via a middleware, which can be used to give full access to
+// the server, or limit it to specific origins
+// E.G.
+const corsOptions = { origin: ["example.com"] }; // Only allows requests from example.com | "*" allows all sites
+app.use(cors(corsOptions)); // Adds the cors middleware 
+
+// When releaseing a product, this should always contain your limited sites
 
 
 

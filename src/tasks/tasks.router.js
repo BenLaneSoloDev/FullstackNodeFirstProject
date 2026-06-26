@@ -3,11 +3,12 @@ const express = require("express");
 const tasksRouter = express.Router();
 
 tasksRouter.get("/tasks", (req, res) => {
-    res.send("All Tasks");
+    return res.send("Hello World!");
 });
 
 tasksRouter.post("/tasks", (req, res) => {
-    res.send("Create a new task");
+    console.log(req.body); 
+    return res.send("Create a new task");
 });
 
 module.exports = tasksRouter;
