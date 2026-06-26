@@ -104,6 +104,65 @@ app.listen(port, () => {
 // runs the server so that when any request is made, it makes sure to answer it. The app.get would not work 
 // alone, but is ran when the server hears something sent to that port.
 
+// The following line demonstrates how to indicate a route/param/query (has to follow order)
+app.get("/route/:param/:optional_param?/?key=value&key=param")
+
+// BONUS ROUTING INFO: 
+// 1. "/route?" makes the final character optional
+// 2. "/route*" allows any characters to follow it
+// 3. "/route/*" allows any sub route to be found
+// 4. /.*fly$/ allows any routes that end with "fly" to be found
+
+// Handle Routing Better By adding to a parent object in a file
+const express = require("express");
+const tasksRouter = express.Router();
+
+tasksRouter.get("/tasks", (req, res) => {
+    res.send("All Tasks");
+});
+
+module.exports = tasksRouter;
+
+// Then importing it to a main file and attach to the app
+const  tasksRouter = require("./tasks/tasks.router.js");
+app.use("/", tasksRouter);
+
+
+
+
+
+
+
+// -------- Nodemon Package -------
+// This package can be added as a dev dependency using npm and allows running apps to update while running
+// I.e. Any changes made cause the app to restart for us, so we dont have to manually do it
+
+// To set this up
+// 1. Intall Nodemon as a dev dependency (npm i -D nodemon@X-X-X)
+// 2. Add a dev script to the package to JSON ("dev": "nodemon src/index.js")
+// 3. Run the app through this script (npm run dev)
+
+// This essentially creates a dev version of running it that is quicker, whilst still allowing the 
+// standard way of starting the app.
+
+
+
+// -------- Request / Response --------
+
+// Anatomy of Request / Response
+// 1. Request/Status Line | First line in HTTP request specifying method, url and protocol version. This
+// indicating the action, resource and protocol used
+// 2. Request/Response Headers | Metadata sent to provide additional context, including; content type, 
+// authentication, client type and response preferences
+// 3. Request/Response Body | The data sent to the server, such as form data or json with the POST or PUT
+// methods.
+
+// Response Line = HTTP/1.1 200 OK
+// HHTP/1.1 | HTTP version of the server
+// Status Code | 3 digit number representing the outcome, 200 representing success
+// Reason Phrase | Human-readable answer textual description of the Status Code
+
+
 
 
 
