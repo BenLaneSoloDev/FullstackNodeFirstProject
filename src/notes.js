@@ -104,6 +104,7 @@ app.listen(port, () => {
 // runs the server so that when any request is made, it makes sure to answer it. The app.get would not work 
 // alone, but is ran when the server hears something sent to that port.
 
+// ROUTING
 // The following line demonstrates how to indicate a route/param/query (has to follow order)
 app.get("/route/:param/:optional_param?/?key=value&key=param")
 
@@ -127,7 +128,8 @@ module.exports = tasksRouter;
 const  tasksRouter = require("./tasks/tasks.router.js");
 app.use("/", tasksRouter);
 
-// Creatind and using MiddleWare
+// MIDDLEWARE
+// Creating and using MiddleWare
 const middleWare = function (req, res, next) {
     req.info = {appname: "Tasks Manager", author: "Cloudaffle"};
     next();
@@ -139,6 +141,26 @@ app.use(middleWare)
 
 // Good Defaults
 app.use(express.json()); // Middleware that converts incoming request body into JSON format
+
+// CONTROLLERS
+// Controllers are unique files per entity (route) that controls what happens with the request, and gives
+// a response. Much like having an individual router.js file for each entity/route, we then create a
+// controller.js file for each type of entity/route, to handle responses in a more separated way
+
+// Controller File Setup
+function handleGetTasks(req, res) {
+    res.send("GET Tasks Controller");
+};
+module.exports = { handleGetTasks };
+
+// Router File Additions
+const tasksController = require("./tasks.controller.js");
+tasksRouter.get("/tasks", tasksController.handleGetTasks);
+
+// This allows every single GET request for the tasks route to be processed in the controller
+
+
+
 
 
 
