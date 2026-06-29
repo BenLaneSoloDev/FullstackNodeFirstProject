@@ -1,3 +1,5 @@
+const { StatusCodes, ReasonPhrases } = require("http-status-codes");
+
 function handleGetTasks(req, res) {
     let response = [
         {
@@ -8,7 +10,7 @@ function handleGetTasks(req, res) {
             status: "todo"
         },
     ];
-    res.status(200).json(response);
+    res.status(StatusCodes.OK).json(response);
 };
 
 function handlePostTasks(req, res) {

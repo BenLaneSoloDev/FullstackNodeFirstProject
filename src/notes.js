@@ -213,6 +213,19 @@ app.use(cors(corsOptions)); // Adds the cors middleware
 
 
 
+
+// ------- HTTP-Status-Codes Package --------
+// This package allows you to access objects that handle the different status codes and their meaning
+// E.G.
+// StatusCodes.OK can be used instead of 200
+// ReasonPhrases.OK can be used instead of the written message of this being a success
+// Just used to make development clearer
+
+
+
+
+
+
 // -------- Request / Response --------
 
 // Anatomy of Request / Response
@@ -227,6 +240,37 @@ app.use(cors(corsOptions)); // Adds the cors middleware
 // HHTP/1.1 | HTTP version of the server
 // Status Code | 3 digit number representing the outcome, 200 representing success
 // Reason Phrase | Human-readable answer textual description of the Status Code
+
+// Status Code + (Most used of each type)
+
+// 2XX Codes: Success
+// 200 OK | Success and all requested data is there
+// 201 Created | Request fulfilled, resource created
+// 204 No Content | Success but no data is returned (not available)
+
+// 3XX Codes: Redirection
+// 301 Moved Permanently | URL of requested resource has permanently moved, returns the new URL
+// 302 Found | Server is redirecting to a different temporary URL
+// 304 Not Modified | Client can use the cache as the resource has not changed
+
+// 4XX Codes: Client Error
+// 400 Bad Request | Server will not process request (could be URL or syntax error)
+// 401 Unauthorised | Authentication is required and not provided or failed
+// 403 Forbidden | Server understand the request but refuses to authorise it
+// 404 Not Found | Resoure could not be found on the server, but may exist later
+// 409 Conflict | Request could not be completed due to the current state of the resource
+
+// 5XX Codes: Server Error
+// 500 Internal Server Error | General error for server failure
+// 501 Not implemented | Server does nto understand request or canot fulfill it
+// 503 Service Unavailable | Server currently unavailable (will happen suring maintenance)
+
+// Key Components of Pipeline
+
+// TO BE FILLED!
+
+// 1. Response Formatter | Middleware that changes json response to contain status info
+
 
 
 
