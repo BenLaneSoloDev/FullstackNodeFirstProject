@@ -4,6 +4,8 @@ const path = require("path");
 const morgan = require("morgan");
 const responseFormatter = require("./middleware/responseFormatter.js");
 const tasksRouter = require("./tasks/tasks.router.js");
+const authRouter = require("./auth/auth.router.js");
+const usersRouter = require("./users/users.router.js");
 const { StatusCodes } = require("http-status-codes");
 const cors = require("cors");
 
@@ -22,6 +24,8 @@ app.use(responseFormatter);
 
 // ADDED ROUTES
 app.use("/", tasksRouter);
+app.use("/auth", authRouter);
+app.use("/users", usersRouter);
 
 // BLANK ROUTE TO CATCH "NOT FOUND" ERRORS (and have a valid response back)
 app.use((req, res) => {
