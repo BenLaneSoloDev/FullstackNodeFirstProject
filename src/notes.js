@@ -274,6 +274,27 @@ app.use(cors(corsOptions)); // Adds the cors middleware
 
 
 
+// -------- MONGO DATABASE --------
+// This is a noSQL databse, meaning it is not tables and accessed with SQL, instead it is data files
+
+// Advantages:
+// Document-Oriented Storage | JSON like document storage, making it easier to read and integrate
+// Schema Flexibility | Easily modified data structure that allows for easy model evolution
+// Scalability | Sharding and replication make it great for large-scale, high-volume apps
+// Development Speed | Faster to setup without need for rigid data structure, perfect for agile development
+
+// ! DISCLAIMER
+// Applications with high integrity as a requirement should not use a noSQL database, 
+// these apps might be things like financial or booking services.
+
+// MongoDB Connections
+// You can connect to MongoDB in different ways, but this course uses the MongoDB Compass Software (GUI App)
+// and MongoDB Shell (Custom Shell Command Line Tool)
+
+// Using MongoDB
+// 
+
+
 
 
 
