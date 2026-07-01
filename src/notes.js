@@ -292,6 +292,8 @@ app.use(cors(corsOptions)); // Adds the cors middleware
 // and MongoDB Shell (Custom Shell Command Line Tool)
 // Shell Connection Command:
 // mongosh "mongodb+srv://nodejs.cv4c23e.mongodb.net/" --apiVersion 1 --username benDev --password JohnSmithDW12
+// Mongoose Connection String:
+// "mongodb+srv://nodejs.cv4c23e.mongodb.net/"
 
 // Using MongoDB
 // use <db name> | Selects and or creates a database for use (fills the db variable)
@@ -319,6 +321,29 @@ app.use(cors(corsOptions)); // Adds the cors middleware
 // Deleting Data
 // db.users.deleteOne({firstName: "John"}) | Deletes all users called John
 // db.tasks.deleteMany({}) | Deletes all tasks
+
+// ------- Mongoose (Object Data Modelling) Package ------
+// Used to counter the drawbacks of MongoDB 
+// (i.e. lack of schema management, bad data validation, complex data handling )
+
+// The Mongoose package helps to model your application data, making it more rigid (which is good). It allows
+// for type casting, validation, query building and logic hooks which simplify MongoDB interaction.
+
+// What is Schema?
+// The structure of the documents within a MongoDB Collection (the blueprint for the data files stored)
+
+// What is a Model?
+// The constructor coming from a schema definition, responsible for reading and writing to the MongoDB
+// Models are used to create and edit instances of the Schema, and make the changes in the MongoDB
+// It is the interface between MongoDB and the code, making the CRUD operations easier to use, 
+// abstracting MongoDB interaction.
+// The Model is essentially the element that connects the controller and database (seprating the stages)
+
+// Schema Types (for type casting) can be found in the Mongoose.js docs
+// Key Ones to Remember:
+// 
+
+
 
 
 
