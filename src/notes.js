@@ -290,9 +290,38 @@ app.use(cors(corsOptions)); // Adds the cors middleware
 // MongoDB Connections
 // You can connect to MongoDB in different ways, but this course uses the MongoDB Compass Software (GUI App)
 // and MongoDB Shell (Custom Shell Command Line Tool)
+// Shell Connection Command:
+// mongosh "mongodb+srv://nodejs.cv4c23e.mongodb.net/" --apiVersion 1 --username benDev --password JohnSmithDW12
 
 // Using MongoDB
-// 
+// use <db name> | Selects and or creates a database for use (fills the db variable)
+// db. | Accesses the currently chosen database
+// db.users. | Accesses the users collection in the chosen database (users can be anything)
+// cls | Clears terminal
+
+// Inserting Data:
+// db.users.insertOne({ param1: "hello", param2: 45 }) | Creates a data entry of the following object
+// db.users.insertMany([{ param1: "hello" }, { param2: 45 }]) | Creates multiple data entries 
+
+// Finding Data (No Pagination or Filtering)
+// db.tasks.find() | Gets all resources under the tasks collection
+// db.tasks.find({isCompleted: true}) | Finds all resources in the collection with this property and value
+// db.tasks.find({"_id": ObjectId("6a44eea9ff4661af7c1feb98")}) | Finds the resource with the given ID  
+// db.tasks.findOne({query}) | returns the first object that hits the query
+
+// Updating Data
+// db.users.updateOne({"_id": ObjectId("6a44ec4aff4661af7c1feb96")},
+// {$set: { email: "john@doe.com", age: 22 }, $currentDate: { lastUpdated: true } }) | Selects user of the given
+// ID and adds an email, a new age and stores the date of its last update
+// db.users.replaceOne({"_id": ObjectId("6a44edd8ff4661af7c1feb97")}, {name: "Alice", age: 30}) | Changes user 
+// of the given ID, and makes an object with the current properties
+
+// Deleting Data
+// db.users.deleteOne({firstName: "John"}) | Deletes all users called John
+// db.tasks.deleteMany({}) | Deletes all tasks
+
+
+
 
 
 
