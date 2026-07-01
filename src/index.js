@@ -37,7 +37,7 @@ app.use((req, res) => {
 // Starts application only if MongoDB Connection works
 async function bootstrap() {
     try {
-        await mongoose.connect("mongodb+srv://nodejs.cv4c23e.mongodb.net/", 
+        await mongoose.connect("mongodb+srv://benDev:JohnSmithDW12@nodejs.cv4c23e.mongodb.net/", 
         { dbName: "fullstackTasks" });
         console.log("SUCCESS CONNECTING TO MONGODB");
         // START APP
